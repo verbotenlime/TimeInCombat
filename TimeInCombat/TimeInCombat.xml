@@ -1,0 +1,27 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Script file="HealthTimer.lua"/>
+    <Frame name="HealthTimerFrame" parent="UIParent" movable="true" enableMouse="true">
+        <Size>
+            <AbsDimension x="200" y="50"/>
+        </Size>
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString name="HealthTimerText" inherits="GameFontNormalLarge" text="0.00 seconds">
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnLoad>
+                self:RegisterForDrag("LeftButton")
+            </OnLoad>
+            <OnDragStart>self:StartMoving();</OnDragStart>
+            <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+        </Scripts>
+    </Frame>
+</Ui>
